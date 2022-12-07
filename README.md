@@ -8,3 +8,5 @@ A Discord-Server management bot
 3. Make a folder `env` in `/src` directory.
 4. Make a file in `/src/env` called `"token"` and put your Discord bot token there.
 5. Run `main.py`
+
+_Remember to rename the `configuration.example.py` file to `configuration.py` and update its content._
