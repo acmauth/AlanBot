@@ -122,10 +122,10 @@ class ACM_AUTH_BOT(discord.Client):
 
 
 if __name__ == '__main__':
-    with open('src/env/token') as file:
+    with open('env/token') as file:
         token = file.read()
 
-    intents = discord.Intents.default()
+    intents = discord.Intents.all()
     intents.members = True
     intents.typing = False
     intents.presences = False

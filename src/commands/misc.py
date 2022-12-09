@@ -36,5 +36,6 @@ async def verify(message: discord.Message, parameters: str, client: discord.Clie
             else:
                 name = name.name
             await message.channel.send(content= name + " successfully verified.")
-        except:
+        except Exception as e:
+            print(e)
             await message.channel.send(content="I couldn't find " + member + "! :tired_face:")
