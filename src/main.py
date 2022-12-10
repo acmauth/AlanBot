@@ -124,7 +124,7 @@ class AlanBot(discord.Client):
 
 
 if __name__ == '__main__':
-    with open('src/env/token') as file:
+    with open(configuration.TOKEN_PATH) as file:
         token = file.read()
 
     intents = discord.Intents.all()
