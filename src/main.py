@@ -7,15 +7,17 @@ import commands
 import configuration
 import util
 import logger
+import events
 
 
-class ACM_AUTH_BOT(discord.Client):
+class AlanBot(discord.Client):
     
     DEBUG_SPY_MODE = False
     
     async def on_ready(self) -> None:
         """Runs when the bot is operational"""
-        print('ACM_AUTH_BOT is ready')
+        print('AlanBot is ready')
+        asyncio.get_running_loop().create_task(events.scheduled_events(self))
 
     async def on_error(self, event_method, *args, **kwargs) -> None:
         try:
@@ -122,7 +124,7 @@ class ACM_AUTH_BOT(discord.Client):
 
 
 if __name__ == '__main__':
-    with open('env/token') as file:
+    with open('src/env/token') as file:
         token = file.read()
 
     intents = discord.Intents.all()
@@ -136,9 +138,9 @@ if __name__ == '__main__':
         users=True
     )
 
-    client = ACM_AUTH_BOT(
+    client = AlanBot(
         intents=intents, allowed_mentions=allowed_mentions)
 
     client.run(token)
 
-    print('ACM_AUTH_BOT Killed')
+    print('AlanBot Killed')

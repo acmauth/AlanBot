@@ -3,6 +3,8 @@ import asyncio
 from typing import Callable
 import discord
 import configuration
+import time
+from datetime import datetime
 
 
 def get_member_by_id_or_name(message, user: str) -> discord.Member or None:
@@ -125,3 +127,7 @@ class ReactionPageHandle():
         except asyncio.TimeoutError:
             await self.message.clear_reactions()
 
+def datetime_from_utc_to_local(utc):
+    epoch = time.mktime(utc.timetuple())
+    offset = datetime.fromtimestamp(epoch) - datetime.utcfromtimestamp(epoch)
+    return utc + offset
