@@ -1,5 +1,5 @@
 # AlanBot
-A Discord-Server management bot 
+A Discord-Server management bot, based on https://github.com/Bobby-McBobface/phnix-discord-bot project.
 
 ## How to run on your server
 0. Create a Discord application (Bot) on Discord Developer Portal.
