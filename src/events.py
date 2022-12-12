@@ -17,7 +17,7 @@ async def scheduled_events(client: discord.Client) -> None:
             now = datetime.now().strftime("%D %H:%M").split(" ")
             for event in event_list:
                 start = util.datetime_from_utc_to_local(event.start_time).strftime("%D %H:%M").split(" ")
-                if start == now and event.status != discord.EventStatus.active:
+                if start[0] == now[0] and start[1] <= now[1] and event.status != discord.EventStatus.active:
                     await event.start()
                     await asyncio.sleep(1)  # Avoiding api spam
             await asyncio.sleep(configuration.EVENT_SLEEP)
